@@ -1,0 +1,25 @@
+.container {
+    padding: 10px;
+}
+
+.sidebar-slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #faf1fa;
+    /* transform: translateX(-100%); */
+    transition: ease-in-out 300ms transform;
+    width: 250px;
+}
+
+.sidebar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    height: 100%;
+}

@@ -1,0 +1,66 @@
+<div class="">
+    <div>
+      <h4>User Details</h4>
+      <button type="button" class="btn btn-sm btn-info float-end mb-2" (click)="open(content)">Add user +</button>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of dummyData; let index = index">
+            <th scope="row">{{index + 1}}</th>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.address}}</td>
+            <td><button class="btn btn-primary btn-sm" (click)="editData(user, index)">Edit</button> | 
+                <button class="btn btn-sm btn-danger" (click)="deleteUser(user, index)">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="">
+        <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">{{heading}}</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+            </div>
+            <div class="modal-body">
+                <div class="">
+                    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="username">Name</label>
+                            <input type="hidden" name="id" formControlName="id">
+                            <input type="text" class="form-control" id="username" formControlName="name" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Phone</label>
+                            <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Enter Phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" formControlName="address" placeholder="Enter Address">
+                        </div>
+                        <div class="d-flex float-end mt-3 footer_btn">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-danger" (click)="closeModal()">Cancel</button>
+                        </div>
+                       
+                      </form>
+                </div>
+            </div>
+        </ng-template>
+      </div>
+</div>
